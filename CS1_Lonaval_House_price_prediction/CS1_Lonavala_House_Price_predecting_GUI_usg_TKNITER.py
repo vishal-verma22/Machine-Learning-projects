@@ -1,5 +1,5 @@
 """
-Lonavala House Price Predictor using Tkinter
+Lonavala House Price Predictor using ML & Tkinter
 """
 
 # =======================
@@ -51,7 +51,7 @@ def check_price():
 
         labMsg.config(
             text=f"💰 Estimated Price: ₹ {price} Crores",
-            fg="#00ff88"   # Bright green (visible clearly)
+            fg="#00ff88"   
         )
     except:
         labMsg.config(
@@ -96,7 +96,7 @@ btnCheck = Button(
     root,
     text=" Predict Price ",
     font=("Segoe UI", 14, "bold"),
-    bg="#ff9800",   # Orange button
+    bg="#ff9800",   
     fg="white",
     activebackground="#e68900",
     activeforeground="white",
