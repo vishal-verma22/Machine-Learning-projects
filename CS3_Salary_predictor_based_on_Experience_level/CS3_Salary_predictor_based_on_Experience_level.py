@@ -69,8 +69,7 @@ def check_salary():
 root = Tk()
 root.title("Salary Predictor")
 root.geometry("800x500+100+100")
-root.configure(bg="#f0f4f8")  # soft background color
-
+root.configure(bg="#f0f4f8") 
 heading_font = ("Segoe UI", 28, "bold")
 label_font = ("Segoe UI", 16)
 entry_font = ("Segoe UI", 14)
