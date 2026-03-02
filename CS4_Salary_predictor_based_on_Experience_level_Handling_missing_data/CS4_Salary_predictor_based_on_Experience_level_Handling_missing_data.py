@@ -26,12 +26,10 @@ print(data.shape)
 
 
 #checking missing value in dataset
-
-print(data.isnull().sum())
-
+print("\nChecking Null value\n",data.isnull().sum())
 #checking skewness of data
 
-print(data.skew())
+print("\nChecking skewness of data\n",data.skew())
 
 sns.histplot(data["Experience (years)"],kde=True)
 plt.show()
