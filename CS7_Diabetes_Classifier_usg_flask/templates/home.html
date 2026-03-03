@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: linear-gradient(to bottom right, #43cea2, #185a9d);
+            padding: 30px;
+            border-radius: 20px;
+            width: 400px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-group p {
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .radio-group label {
+            margin-right: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff4c4c;
+        }
+
+        .message {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ffeeba;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🩺 Diabetes Classifier 🩸</h1>
+    <form method="POST">
+
+        <div class="input-group">
+            <input type="number" name="age" placeholder="👶 Enter Age"  required>
+        </div>
+
+        <div class="input-group">
+            <input type="number" name="bmi" placeholder="⚖️ Enter BMI" step="0.1" required>
+        </div>
+
+        <div class="input-group">
+            <input type="number" name="fasting_sugar" placeholder="🍬 Fasting Sugar (mg/dL)" step="0.1" required>
+        </div>
+
+        <div class="input-group">
+            <input type="number" name="hba1c" placeholder="💉 HbA1c (%)" step="0.1" required>
+        </div>
+
+        <div class="radio-group">
+            <p>🧍 Gender:</p>
+            <label><input type="radio" name="gender" value="Male" required> 🧍‍♂️ Male</label>
+            <label><input type="radio" name="gender" value="Female"> 🧍‍♀️ Female</label>
+        </div>
+
+        <div class="radio-group">
+            <p>💓 Hypertension (BP):</p>
+            <label><input type="radio" name="hypertension" value="Yes" required> Yes</label>
+            <label><input type="radio" name="hypertension" value="No"> No</label>
+        </div>
+
+        <div class="radio-group">
+            <p>👨‍👩‍👧‍👦 Family History:</p>
+            <label><input type="radio" name="family_history" value="Yes" required> Yes</label>
+            <label><input type="radio" name="family_history" value="No"> No</label>
+        </div>
+
+        <input type="submit" value="Check Diabetes">
+    </form>
+
+   {% if message %}
+    <div class="message" style="background-color: {% if message == 'Yes' %}#ff6b6b{% else %}#6fcf97{% endif %}; color: white;">
+        {% if message == 'Yes' %}
+            ⚠️ Based on your inputs, there is a risk of diabetes. Please consult a doctor and maintain a healthy lifestyle.
+        {% elif message == 'No' %}
+            ✅ Good news! Your inputs suggest a low risk of diabetes. Keep up a healthy diet and regular exercise!
+        {% else %}
+            ℹ️ Unable to determine risk. Please check your inputs and try again.
+        {% endif %}
+    </div>
+
+    <div class="note">
+        📝 Note: This prediction is for <strong>informational purposes only</strong> and <strong>may not be 100% accurate</strong>. Always consult a healthcare professional for medical advice.
+{% endif %}
+</div>
+
+</body>
+</html>
