@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price in Thane</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 30px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .radio-group {
+            margin: 15px 0;
+        }
+
+        .radio-group input[type="radio"] {
+            accent-color: #1e3c72;
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #16325c;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .result p {
+            margin: 5px 0;  /* each input on new line */
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🏠 House Price in Thane</h1>
+
+    <form method="POST">
+        <input type="number" name="bedroom" placeholder="Enter Number of Bedrooms" required>
+        <input type="number" name="area" placeholder="Enter Area in Square Feet" required>
+
+        <div class="radio-group">
+            Furnishing:<br>
+            <input type="radio" name="furnishing" value="Semi-Furnished" required> Semi-Furnished
+            <input type="radio" name="furnishing" value="Furnished"> Furnished
+            <input type="radio" name="furnishing" value="Unfurnished"> Unfurnished
+        </div>
+
+        <input type="number" name="bathroom" placeholder="Enter Number of Bathrooms" required>
+        <input type="submit" value="Check Price">
+    </form>
+
+    {% if message %}
+    <div class="result">
+        <h3>🏠 Input Summary:</h3>
+        <p>Bedrooms: {{ message[1] }}</p>
+        <p>Area (sqft): {{ message[2] }}</p>
+        <p>Furnishing: {{ message[3] }}</p>
+        <p>Bathrooms: {{ message[4] }}</p>
+
+        <p class="price">💰 Estimated Price: ₹{{ message[0]	 }} per month</p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
