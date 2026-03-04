@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AutoValuer – Smart Car Resale Price Predictor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+}
+
+.card h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+select, input[type="number"] {
+    background: rgba(255,255,255,0.9);
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 19.5px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+h1 i {
+    margin-right: 8px;
+    color: #ffd60a;
+    text-shadow: 0 0 10px rgba(255, 214, 10, 0.8);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1><i class="fa-solid fa-car"></i> AutoValuer</h1>
+<p>Smart Car Resale Price Predictor</p>
+
+<form method="POST">
+
+<select name="car_name" required>
+<option value="" disabled selected>Select Car Brand</option>
+<option value="Mahindra">Mahindra</option>
+<option value="Maruti">Maruti</option>
+<option value="Tata">Tata</option>
+</select>
+
+<input type="number" name="age_years" placeholder="Years Used" required>
+<input type="number" name="kms_driven" placeholder="Kilometers Driven" required>
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+<div class="result">
+    🚘 Your car’s market worth is around ₹ {{ message }}
+</div>
+
+</div>
+
+</body>
+</html>
