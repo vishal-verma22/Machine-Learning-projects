@@ -1,5 +1,7 @@
 from flask import*
 from pickle import*
+import os
+
 
 
 with open("Generated_pickle_file.pkl","rb") as f:
@@ -46,4 +48,8 @@ def check_diabetes():
 
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
+    )
